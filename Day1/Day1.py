@@ -1,1 +1,2 @@
-print(len(input("What is your name? ")))
+name = input("Wthat is your name?")
+print(name)
