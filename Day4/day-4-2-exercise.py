@@ -1,21 +1,11 @@
 import random
 
-persons = ["Angela", "Farhan", "Null"]
+persons = input("Give me everybody's names,seperated by a comma. ")
 
-rand = random.randint(0, 2)
+names = persons.split(", ")
 
+rand = random.randint(0, len(names))
 
-def switch_case(case_value):
-    if case_value == 0:
-        return "Angela is going to buy the meal today!"
-    elif case_value == 1:
-        return "Farhan is going to buy the meal today!"
-    elif case_value == 2:
-        return "Null is going to buy the meal today!"
-    else:
-        return "Invalid Entry"
+gonna_pay = names[rand]
 
-
-result = switch_case(rand)
-
-print(result)
+print(f"{gonna_pay} is going to pay for the meal today")
