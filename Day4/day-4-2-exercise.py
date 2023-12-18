@@ -4,7 +4,7 @@ persons = input("Give me everybody's names,seperated by a comma. ")
 
 names = persons.split(", ")
 
-rand = random.randint(0, len(names))
+rand = random.randint(0, len(names)-1)
 
 gonna_pay = names[rand]
 
