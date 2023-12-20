@@ -15,24 +15,25 @@ emoji = []
 num = []
 
 for l in range(0, nr_letters):
-    rand_letters = random.randint(0, len(letters))
+    rand_letters = random.randint(0, len(letters) -1)
     ltr.append(letters[rand_letters])
     l += 1
 print(ltr)
 
 for s in range(0, nr_symbols):
-    rand_symbols = random.randint(0, len(symbols))
+    rand_symbols = random.randint(0, len(symbols)-1)
     emoji.append(symbols[rand_symbols])
     s += 1
 print(emoji)
 
 for n in range(0, nr_numbers):
-    rand_numbers = random.randint(0, len(numbers))
+    rand_numbers = random.randint(0, len(numbers)-1)
     num.append(numbers[rand_numbers])
     n += 1
 print(num)
 
-
+join = ltr + emoji + num
+print(join)
 
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
 
