@@ -13,12 +13,28 @@ dash = []
 for i in range(word_length):
     dash += "_"
 
-for j in range(word_length):
-    letter = chosen_word[j]
 
-    if letter == guess:
-        dash[j] = letter
+def letter_check():
+    for j in range(word_length):
+
+        letter = chosen_word[j]
+        if letter == guess:
+            dash[j] = letter
+        else:
+            dash[j] = "_"
+
+
+a = True
+
+
+while a:
+    i = 0
+    if not dash[i] == "_":
+        letter_check()
     else:
-        dash[j] = "_"
+        a = False
+
+    i += 1
+
 
 print(dash)
