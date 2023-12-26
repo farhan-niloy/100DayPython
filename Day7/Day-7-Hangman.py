@@ -1,40 +1,26 @@
 import random
 
 insect_list = ["Ladybugs", "Cockroach", "Mantis"]
-
 guess = input("Guess a letter: ").lower()
-
 chosen_word = random.choice(insect_list)
-
 word_length = len(chosen_word)
 
-dash = []
-
+display = []
 for i in range(word_length):
-    dash += "_"
+    display += "_"
 
+end_of_game = False
 
-def letter_check():
-    for j in range(word_length):
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
 
-        letter = chosen_word[j]
+    for position in range(word_length):
+        letter = chosen_word[position].lower()
         if letter == guess:
-            dash[j] = letter
-        else:
-            dash[j] = "_"
+            display[position] = letter
 
+    print(display)
 
-a = True
-
-
-while a:
-    i = 0
-    if not dash[i] == "_":
-        letter_check()
-    else:
-        a = False
-
-    i += 1
-
-
-print(dash)
+    if "_" not in display:
+        end_of_game = True
+        print("You win.")
