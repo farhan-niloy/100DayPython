@@ -6,13 +6,19 @@ guess = input("Guess a letter: ").lower()
 
 chosen_word = random.choice(insect_list)
 
-dash = [""] * len(chosen_word)
+word_length = len(chosen_word)
 
-for i, letter in enumerate(chosen_word):
+dash = []
+
+for i in range(word_length):
+    dash += "_"
+
+for j in range(word_length):
+    letter = chosen_word[j]
 
     if letter == guess:
-        dash[i] = "p"
+        dash[j] = letter
     else:
-        dash[i] = "_"
+        dash[j] = "_"
 
 print(dash)
