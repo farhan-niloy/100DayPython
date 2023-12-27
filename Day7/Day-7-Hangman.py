@@ -14,6 +14,7 @@ print(logo)
 #Testing code
 print(f'Pssst, the solution is {chosen_word}.')
 
+
 #Create blanks
 display = []
 for _ in range(word_length):
@@ -21,6 +22,7 @@ for _ in range(word_length):
 
 while not end_of_game:
     guess = input("Guess a letter: ").lower()
+
 
     #TODO-4: - If the user has entered a letter they've already guessed, print the letter and let them know.
     if guess in display:
