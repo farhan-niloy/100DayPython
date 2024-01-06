@@ -16,5 +16,4 @@ def caesar(start_text, shift_amount, cipher_direction):
         print(f"The decoded text is {end_text}")
 
 
-
 caesar(text, shift, direction)
