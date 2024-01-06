@@ -13,7 +13,13 @@ def encrypt(text, shift):
     for letter in text:
         position = alphabet.index(letter)
         new_position = position + shift
-        new_letter = alphabet[new_position]
+
+        if(new_position > 26):
+            position2 = new_position - 26 + shift
+            new_letter = alphabet[position2]
+        else:
+            new_letter = alphabet[new_position]
+
         encrypted += new_letter
     print(f"The encoded text is {encrypted}")
 
