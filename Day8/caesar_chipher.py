@@ -1,4 +1,4 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 the_text = input("Type your message:\n").lower()
@@ -13,12 +13,7 @@ def encrypt(text, shift):
     for letter in text:
         position = alphabet.index(letter)
         new_position = position + shift
-
-        if(new_position > 26):
-            position2 = new_position - 26 + shift
-            new_letter = alphabet[position2]
-        else:
-            new_letter = alphabet[new_position]
+        new_letter = alphabet[new_position]
 
         encrypted += new_letter
     print(f"The encoded text is {encrypted}")
