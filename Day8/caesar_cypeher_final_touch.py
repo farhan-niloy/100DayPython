@@ -6,26 +6,15 @@ shift = int(input("Type the shift number:\n"))
 
 
 def caesar(start_text, shift_amount, cipher_direction):
-    encrypted = ""
-    decrypted = ""
+    end_text = ""
+    if cipher_direction == "decode":
+        shift_amount *= -1
+    for letter in start_text:
+        position = alphabet.index(letter)
+        new_position = position + shift_amount
+        end_text += alphabet[new_position]
+        print(f"The decoded text is {end_text}")
 
-    if cipher_direction == "encode":
-        for letter in start_text:
-            position = alphabet.index(letter)
-            new_position = position + shift_amount
-            new_letter = alphabet[new_position]
-            encrypted += new_letter
-        print(f"The encoded text is {encrypted}")
-
-    elif cipher_direction == "decode":
-        for letter in text:
-            position = alphabet.index(letter)
-            new_position = position - shift
-            new_letter = alphabet[new_position]
-            decrypted += new_letter
-        print(f"The encoded text is {decrypted}")
-    else:
-        print("Invalid Entry!")
 
 
 caesar(text, shift, direction)
