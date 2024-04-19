@@ -3,3 +3,5 @@ programming_dictionary = {
     "Fahmida": "Farhan",
     "Star": "Wars",
 }
+
+print(programming_dictionary["Fahmida"])
