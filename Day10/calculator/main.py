@@ -18,11 +18,22 @@ def multiply(n1, n2):
 def divide(n1, n2):
     return n1 / n2
 
-dict = {}
 
-dict['+'] = "add"
-dict['-'] = "subtract"
-dict['*'] = "multiply"
-dict['/'] = "divide"
 
-print(dict)
+operations = {}
+
+operations['+'] = add
+operations['-'] = subtract
+operations['*'] = multiply
+operations['/'] = divide
+
+num1 = int(input("Enter first number: "))
+modeOperation = input("Choose an operation:  ")
+num2 = int(input("Enter second number: "))
+
+
+for operator in operations:
+    if modeOperation == operator:
+        operation = operations[operator]
+        calculation = operation(num1, num2)
+        print(calculation)
