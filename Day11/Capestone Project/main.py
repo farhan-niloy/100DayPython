@@ -1,5 +1,6 @@
 import random
 import os
+from art import logo as l
 
 
 def clear_screen():
@@ -41,34 +42,45 @@ def compare(user_score, computer_score):
         return "You lose!"
 
 
-user_cards = []
-computer_cards = []
-is_game_over = False
+def play_game():
 
-for _ in range(2):
-    user_cards.append(deal_cards())
-    computer_cards.append(deal_cards())
+    print(l)
 
-while not is_game_over:
-    user_score = calculate_scores(user_cards)
-    computer_score = calculate_scores(computer_cards)
-    print(f"Your cards: {user_cards}, current score: {user_score}")
-    print(f"Computer's first cards: {computer_cards[0]}")
+    user_cards = []
+    computer_cards = []
+    is_game_over = False
 
-    if user_score == 0 or computer_score == 0 or user_score > 21:
-        is_game_over = True
-    else:
-        user_should_deal = input("Type 'y' to get another card, type 'n' to pass: ")  # Corrected 'y' to 'y'
-        if user_should_deal.lower() == 'y':  # Changed 'y' to 'y'
-            user_cards.append(deal_cards())
-        else:
+    for _ in range(2):
+        user_cards.append(deal_cards())
+        computer_cards.append(deal_cards())
+
+    while not is_game_over:
+        user_score = calculate_scores(user_cards)
+        computer_score = calculate_scores(computer_cards)
+        print(f"Your cards: {user_cards}, current score: {user_score}")
+        print(f"Computer's first cards: {computer_cards[0]}")
+
+        if user_score == 0 or computer_score == 0 or user_score > 21:
             is_game_over = True
+        else:
+            user_should_deal = input("Type 'y' to get another card, type 'n' to pass: ")  # Corrected 'y' to 'y'
+            if user_should_deal.lower() == 'y':  # Changed 'y' to 'y'
+                user_cards.append(deal_cards())
+            else:
+                is_game_over = True
 
-while computer_score != 0 and computer_score < 17:
-    computer_cards.append(deal_cards())
-    computer_score = calculate_scores(computer_cards)
+    while computer_score != 0 and computer_score < 17:
+        computer_cards.append(deal_cards())
+        computer_score = calculate_scores(computer_cards)
 
 
-print(f" Your final hand: {user_cards}, final score: {user_score}")
-print(f" Computer final hand: {computer_cards}, final score: {computer_score}")
-print(compare(user_score, computer_score))
+    print(f" Your final hand: {user_cards}, final score: {user_score}")
+    print(f" Computer final hand: {computer_cards}, final score: {computer_score}")
+    print(compare(user_score, computer_score))
+
+
+
+while input("Do you want to play BlackJack? Type 'y' or 'n':").lower() == 'y':
+    clear_screen()
+    play_game()
+
