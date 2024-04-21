@@ -13,6 +13,7 @@ def check_answer(guess, answer, turns):
         turns -= 1
     else:
         print(f"You got it! The answer is {answer}")
+    return turns
 
 
 def set_difficulty():
@@ -30,10 +31,15 @@ def game():
     turns = set_difficulty()
 
     guess = 0
-    while guess != answer:
+
+    true = True
+    while guess != answer and true:
         print(f"You have {turns} guesses left.")
         guess = int(input("Make a guess: "))
-        check_answer(guess, answer, turns)
+        turns = check_answer(guess, answer, turns)
+        if turns == 0:
+            true = False
+            print("\tYou lose!")
 
 
 game()
