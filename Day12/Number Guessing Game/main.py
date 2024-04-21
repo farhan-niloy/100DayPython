@@ -4,11 +4,13 @@ EASY_LEVEL_TURNS = 10
 HARD_LEVEL_TURNS = 5
 
 
-def check_answer(guess, answer):
+def check_answer(guess, answer, turns):
     if guess > answer:
         print("Too high!")
-    if guess < answer:
+        turns -= 1
+    elif guess < answer:
         print("Too low!")
+        turns -= 1
     else:
         print(f"You got it! The answer is {answer}")
 
@@ -26,12 +28,12 @@ def game():
     print("I'm thinking of a number between 1 and 100.")
     answer = randint(1, 100)
     turns = set_difficulty()
-    print(f"You have {turns} guesses left.")
 
     guess = 0
     while guess != answer:
+        print(f"You have {turns} guesses left.")
         guess = int(input("Make a guess: "))
-        check_answer(guess, answer)
+        check_answer(guess, answer, turns)
 
 
 game()
