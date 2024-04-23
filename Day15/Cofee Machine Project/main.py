@@ -48,6 +48,7 @@ def is_resources_sufficient(ordered_ingredients, order):
             return False
         return True
 
+
 def process_coins():
     """Returns the total calculated from the coins inserted"""
     print("Please insert coins: ")
@@ -71,6 +72,12 @@ def is_transaction_successful(money, cost):
         return False
 
 
+def make_coffee(name, ingredients):
+    for item in resources:
+        resources[item] -= ingredients[item]
+    print(f"Here is your {name} ☕️")
+
+
 is_on = True
 
 while is_on:
@@ -83,5 +90,6 @@ while is_on:
         drink = MENU[choice]
         if is_resources_sufficient(drink["ingredients"], choice):
             payment = process_coins()
-            is_transaction_successful(payment, drink["cost"])
+            if is_transaction_successful(payment, drink["cost"]):
+                make_coffee(choice, drink["ingredients"])
 
