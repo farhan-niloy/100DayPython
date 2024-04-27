@@ -1,0 +1,8 @@
+#!/Users/farhan/Programming/100DayPython/Day18/env/bin/python3.12
+# -*- coding: utf-8 -*-
+import re
+import sys
+from pythonturtle.__main__ import application
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(application.run())
