@@ -19,8 +19,8 @@ def turn_right():
 
 screen.listen()
 screen.onkey(move_forward, "w")
-screen.onkey(move_forward, "s")
-screen.onkey(move_forward, "a")
-screen.onkey(move_forward, "d")
+screen.onkey(move_backward, "s")
+screen.onkey(turn_left, "a")
+screen.onkey(turn_right, "d")
 
 screen.exitonclick()
