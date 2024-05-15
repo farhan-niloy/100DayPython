@@ -17,10 +17,16 @@ def turn_right():
     new_heading = tim.heading() - 10
     tim.setheading(new_heading)
 
+def clear():
+    tim.clear()
+    tim.home()
+    tim.penup()
+
 screen.listen()
 screen.onkey(move_forward, "w")
 screen.onkey(move_backward, "s")
 screen.onkey(turn_left, "a")
 screen.onkey(turn_right, "d")
+screen.onkey(clear, "c")
 
 screen.exitonclick()
